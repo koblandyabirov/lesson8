@@ -1,11 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Руководство по настройке GitHub</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <header>
+        <h1>Руководство по настройке GitHub</h1>
+        <p>Пошаговые инструкции для начала работы с Git и GitHub</p>
+    </header>
+
+    <nav>
+        <ul class="nav-list">
+            <li><a href="#register" class="nav-link">Регистрация</a></li>
+            <li><a href="#local-git" class="nav-link">Локальный Git</a></li>
+            <li><a href="#ssh" class="nav-link">SSH ключ</a></li>
+            <li><a href="#vscode" class="nav-link">VS Code</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="register" class="section active">
+            <h2>Как зарегистрироваться на GitHub</h2>
+            <ol>
+                <li>Перейдите на <a href="https://github.com">github.com</a></li>
+                <li>Нажмите кнопку "Sign up"</li>
+                <li>Заполните форму регистрации:
+                    <ul>
+                        <li>Введите email</li>
+                        <li>Создайте пароль</li>
+                        <li>Выберите имя пользователя</li>
+                    </ul>
+                </li>
+                <li>Подтвердите email</li>
+                <li>Настройте свой профиль</li>
+            </ol>
+        </section>
+
+        <section id="local-git" class="section">
+            <h2>Настройка локального Git</h2>
+            <ol>
+                <li>Скачайте Git с официального сайта: <a href="https://git-scm.com">git-scm.com</a></li>
+                <li>Установите Git, следуя инструкциям установщика</li>
+                <li>Откройте терминал и выполните базовую настройку:
+                    <div class="code-block">git config --global user.name "Ваше имя"
+git config --global user.email "ваш@email.com"</div>
+                </li>
+                <li>Проверьте установку:
+                    <div class="code-block">git --version</div>
+                </li>
+            </ol>
+        </section>
+
+        <section id="ssh" class="section">
+            <h2>Генерация SSH ключа</h2>
+            <ol>
+                <li>Откройте терминал</li>
+                <li>Сгенерируйте SSH ключ:
+                    <div class="code-block">ssh-keygen -t ed25519 -C "ваш@email.com"</div>
+                </li>
+                <li>Нажмите Enter для сохранения ключа в папке по умолчанию</li>
+                <li>Добавьте ключ в ssh-agent:
+                    <div class="code-block">eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519</div>
+                </li>
+                <li>Скопируйте публичный ключ:
+                    <div class="code-block">cat ~/.ssh/id_ed25519.pub</div>
+                </li>
+                <li>Добавьте ключ в настройках GitHub (Settings → SSH keys)</li>
+            </ol>
+        </section>
+
+        <section id="vscode" class="section">
+            <h2>Настройка VS Code</h2>
+            <ol>
+                <li>Установите VS Code с официального сайта</li>
+                <li>Установите расширение "GitHub Pull Requests and Issues":
+                    <ul>
+                        <li>Откройте VS Code</li>
+                        <li>Нажмите Ctrl+Shift+X</li>
+                        <li>Найдите и установите расширение</li>
+                    </ul>
+                </li>
+                <li>Войдите в GitHub через VS Code:
+                    <ul>
+                        <li>Нажмите на иконку GitHub в боковой панели</li>
+                        <li>Нажмите "Sign in to GitHub"</li>
+                        <li>Следуйте инструкциям в браузере</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
